@@ -1,0 +1,35 @@
+# Rails
+/log/*
+/tmp/*
+/storage/*
+!/log/.keep
+!/tmp/.keep
+!/storage/.keep
+config/master.key
+config/credentials.yml.enc
+
+# Spina generated
+db/migrate/*.spina.rb
+db/migrate/*_create_active_storage_tables.active_storage.rb
+db/schema.rb
+config/initializers/spina.rb
+config/initializers/mobility.rb
+config/initializers/themes/
+app/views/default/
+app/views/layouts/default/
+app/assets/config/spina/
+
+# Bundler
+/vendor/bundle
+
+# Environment
+.env
+
+# OS
+.DS_Store
+
+# Editor
+.vscode
+.idea
+*.swp
+*.swo

@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+echo "Checking gems..."
+bundle install
+
+echo "Creating database..."
+bundle exec rails db:create || echo "  database already exists, skipping"
+
+# Only run migrations if Spina is already installed (first run is handled by spina:install)
+if bundle exec rails runner "ActiveRecord::Base.connection.table_exists?('spina_accounts')"; then
+  echo "Running pending migrations..."
+  bundle exec rails db:migrate
+fi
+
+echo "Starting server..."
+exec bundle exec "$@"

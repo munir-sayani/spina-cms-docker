@@ -1,0 +1,15 @@
+.git
+.gitignore
+docker-compose.yml
+Dockerfile
+.dockerignore
+*.md
+log/*
+tmp/*
+storage/*
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+node_modules
