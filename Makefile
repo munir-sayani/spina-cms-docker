@@ -20,6 +20,7 @@ install: ## First-time setup: build, start, and run Spina installer
 	@echo ""
 	@echo "Running Spina CMS installer..."
 	@echo ""
+	docker compose exec web bundle exec rails active_storage:install
 	docker compose exec web bundle exec rails spina:install
 	@echo ""
 	@echo "Restarting server..."

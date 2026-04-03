@@ -9,6 +9,8 @@ bundle exec rails db:create || echo "  database already exists, skipping"
 
 # Only run migrations if Spina is already installed (first run is handled by spina:install)
 if bundle exec rails runner "ActiveRecord::Base.connection.table_exists?('spina_accounts')"; then
+  echo "Ensuring Active Storage migrations exist..."
+  bundle exec rails active_storage:install 2>/dev/null || true
   echo "Running pending migrations..."
   bundle exec rails db:migrate
 fi
